@@ -24,7 +24,7 @@
     - RF03: Como cliente quiero reservar una cita para poder acudir a la peluquería en una fecha y hora determinadas.
     - RF04: Como cliente quiero consultar mis próximas citas para saber cuándo tengo que acudir a la peluquería.
     - RF05: Como cliente quiero modificar o cancelar una cita para poder cambiar mis planes si es necesario.
-    - RF06: Como administrador quiero crear, modificar y eliminar servicios para mantener actualizada la oferta de la peluquería.
+    - RF06: Como administrador quiero crear, modificar y eliminar servicios para mantener actualizada la oferta de la peluquería. 
     - RF07: Como administrador quiero consultar y gestionar las citas para organizar correctamente la agenda de la peluquería.
     - RF08: Como administrador quiero gestionar los horarios y la disponibilidad de los peluqueros para organizar las citas correctamente.
     - RF09: Como cliente quiero consultar mi historial de citas para conocer los servicios que he realizado anteriormente.
@@ -36,6 +36,8 @@
     - RNF04: Los datos de usuario deben almacenarse de forma segura.
     - RNF05: Solo los administradores podrán acceder a las funciones de gestión de la peluquería.
     - RNF06: La aplicación debe estar disponible durante el horario habitual de la peluquería.
+    - RNF07: La interfaz de SalonFlow se diseñará previamente mediante un mockup en Figma, para definir cómo serán las pantallas antes de empezar a desarrollar la aplicación web.
+    
 - User Stories (format: *Com a [rol], vull [acció], per a [benefici]*)
 - Estimació de **punts** de les User Stories (Planning Poker / Fibonacci)
 
@@ -148,19 +150,46 @@
 
 # 5. Solució
 - Quines pantalles s'han implementat (captures de pantalla)
+
+Actualmente, las pantallas de SalonFlow están pendientes de implementación. Cuando se desarrolle la interfaz de la aplicación web, se añadirán capturas de pantalla para mostrar el resultado.
+
 - Taules de la base de dades implementades
--### Diseño inicial de la base de datos de SalonFlow
 
-La base de datos de SalonFlow estará diseñada para gestionar las citas de una peluquería. Inicialmente, se propone utilizar **4 tablas: cliente, servicio, cita y factura**.
+La base de datos todavía está pendiente de implementación en PostgreSQL. El diseño inicial se basa en el diagrama entidad-relación (ER) del proyecto y contempla las siguientes tablas:
 
-- **Cliente:** almacenará los datos personales y de contacto de los clientes.
-- **Servicio:** guardará los servicios que ofrece la peluquería, sus precios y su duración.
-- **Cita:** registrará las citas, relacionando a cada cliente con el servicio solicitado, la fecha y la hora.
-- **Factura:** almacenará el importe de las citas facturadas.
+CLIENTE: almacenará los datos de los clientes, como el identificador, el nombre y el teléfono.
 
-Para esta primera fase se diseñará la tabla `cliente`, que permitirá registrar y consultar la información de los clientes. El resto de las tablas se definirán posteriormente.
+PELUQUERO: contendrá los datos de los peluqueros, como el identificador, el nombre y la especialidad.
+
+CITA: guardará la información de las citas, incluyendo el identificador, la fecha y hora y el estado.
+
+SERVICIO: almacenará los servicios disponibles, con su identificador, nombre y precio.
+
+FACTURA: contendrá los datos de las facturas, como el identificador, la fecha de emisión y el importe total.
+
+Según el diseño propuesto, un cliente puede tener varias citas y un peluquero puede atender varias citas. Cada cita puede incluir varios servicios y puede generar una factura.
+
+Este diseño servirá como base para la futura implementación de la base de datos en PostgreSQL.
+
 - Lògiques de negoci principals implementades
+
+Las lógicas de negocio están pendientes de desarrollo. Para la primera versión de SalonFlow (MVP), se prevé implementar las siguientes funcionalidades:
+
+Gestión de clientes: registrar, consultar y modificar los datos de los clientes.
+
+Gestión de servicios: registrar, consultar y modificar los servicios disponibles.
+
+Gestión de citas: crear, consultar, modificar y cancelar citas, asociándolas con un cliente, un peluquero y los servicios correspondientes.
+
+Validación de datos: comprobar que la información introducida sea correcta y que las citas contengan los datos necesarios.
+
 - Funcionalitats pendents / fora d'abast (si n'hi ha)
+
+En esta fase del proyecto, todavía están pendientes el desarrollo de la interfaz web, la implementación de la base de datos y la programación de las lógicas de negocio.
+
+El MVP se centrará en la gestión de clientes, servicios y citas. La gestión de facturas se dejará para una ampliación futura, junto con otras funcionalidades que se puedan incorporar más adelante.
+
+A medida que avance el desarrollo, se actualizará esta documentación para reflejar las funcionalidades implementadas y añadir las capturas de pantalla correspondientes.
 
 # 6. Diagrames
 - Diagrama de Dades (ER)
