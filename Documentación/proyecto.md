@@ -231,8 +231,112 @@ A medida que avance el desarrollo, se actualizará esta documentación para refl
         }
 ```
 - Diagrama de Classes (si aplica)
+
+```mermaid
+    classDiagram
+        class Cliente {
+            -int id_cliente
+            -String nombre
+            -String telefono
+            +reservarCita()
+            +consultarCitas()
+        }
+
+        class Peluquero {
+            -int id_peluquero
+            -String nombre
+            -String especialidad
+            +consultarAgenda()
+            +atenderCita()
+        }
+
+        class Cita {
+            -int id_cita
+            -DateTime fecha_hora
+            -String estado
+            +crearCita()
+            +cancelarCita()
+            +cambiarEstado()
+        }
+
+        class Servicio {
+            -int id_servicio
+            -String nombre_servicio
+            -Decimal precio
+            +consultarPrecio()
+        }
+
+        class Factura {
+            -int id_factura
+            -DateTime fecha_emision
+            -Decimal total
+            +calcularTotal()
+            +emitirFactura()
+        }
+
+        Cliente "1" -- "0..*" Cita : reserva
+        Peluquero "1" -- "0..*" Cita : atiende
+        Cita "0..*" -- "1..*" Servicio : incluye
+        Cita "1" -- "0..1" Factura : genera
+```
+
+
 - Diagrama de Seqüència d'almenys 1 procés
 
+**Proceso realizar reserva de cita**
+```mermaid
+    sequenceDiagram
+        actor Cliente
+        participant App as Aplicación
+        participant Peluquero
+        participant Cita
+        participant Servicio
+        participant BD as Base de datos
+
+        Cliente->>App: Solicitar reserva
+        App->>BD: Consultar servicios
+        BD-->>App: Lista de servicios
+        App-->>Cliente: Mostrar servicios
+
+        Cliente->>App: Seleccionar servicio, fecha y hora
+        App->>BD: Consultar disponibilidad del peluquero
+        BD-->>App: Disponibilidad
+
+        alt Hay disponibilidad
+            App->>Cita: Crear cita(fecha, hora)
+            App->>BD: Guardar cita
+            BD-->>App: Cita guardada
+            App-->>Cliente: Confirmar reserva
+        else No hay disponibilidad
+            App-->>Cliente: Mostrar que no hay hueco
+        end
+```
+**Proceso de generacion de una factura**
+```mermaid
+    sequenceDiagram
+        actor Peluquero
+        participant App as Aplicación
+        participant Cita
+        participant Servicio
+        participant Factura
+        participant BD as Base de datos
+
+        Peluquero->>App: Solicitar factura de una cita
+        App->>BD: Consultar cita
+        BD-->>App: Datos de la cita
+
+        App->>BD: Consultar servicios de la cita
+        BD-->>App: Lista de servicios y precios
+
+        App->>Factura: Calcular total
+        Factura-->>App: Importe total
+
+        App->>Factura: Crear factura(fecha, total)
+        App->>BD: Guardar factura
+        BD-->>App: Factura guardada
+
+        App-->>Peluquero: Mostrar factura generada
+```
 
 # 9. Conclusions
 - Dificultats trobades
