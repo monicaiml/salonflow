@@ -14,6 +14,8 @@ public class Cliente
         this.telefono = telefono;
     }
 
+    public Cliente() {
+    }
 
     public int getId_cliente() 
     {
