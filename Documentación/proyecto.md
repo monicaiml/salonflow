@@ -338,18 +338,48 @@ A medida que avance el desarrollo, se actualizará esta documentación para refl
         App-->>Peluquero: Mostrar factura generada
 ```
 
-# 9. Conclusions
-- Dificultats trobades
-- Aprenentatges
-- Possibles millores futures
+## 9. Conclusiones
 
-# Annexes
+### Dificultades encontradas
 
-## Annexe I: SCRUM
-En aquest annexe s'inclourà tota la documentació relativa a la gestió del projecte, així com una imatge del Burndown chart
+Durante el desarrollo de SalonFlow han surgido diversas dificultades, especialmente en la configuración de la conexión entre Java y PostgreSQL y en la integración del frontend con el backend. También ha sido necesario revisar y corregir errores durante las pruebas de funcionamiento.
 
+Otra dificultad ha sido coordinar las diferentes tareas del proyecto y adaptar la planificación inicial al tiempo disponible.
 
----
+### Aprendizajes
+
+La realización de este proyecto ha permitido poner en práctica los conocimientos adquiridos durante el ciclo formativo de DAW.
+
+Se han reforzado los conocimientos sobre el diseño y la creación de bases de datos relacionales, el uso de PostgreSQL, la conexión con Java mediante JDBC y la organización del código con clases modelo y DAO.
+
+También se ha trabajado con Spring Boot, servicios REST y la comunicación entre el frontend y el backend. Además, se ha adquirido experiencia en el trabajo en equipo, la metodología Scrum y el uso de Git y GitHub para gestionar el desarrollo.
+
+### Posibles mejoras futuras
+
+Como posibles mejoras futuras de SalonFlow, se plantean las siguientes:
+
+- Completar y revisar todas las operaciones CRUD de las diferentes entidades.
+- Mejorar las validaciones de los datos introducidos por los usuarios.
+- Ampliar las pruebas para comprobar el funcionamiento de todas las funcionalidades.
+- Mejorar el diseño y la usabilidad de la interfaz.
+- Incorporar un sistema de autenticación y gestión de permisos.
+- Optimizar el código y mejorar la gestión de errores.
+- Añadir nuevas funcionalidades para facilitar la gestión de citas, servicios, empleados y facturas.
+
+# Anexos
+
+## Anexo I: SCRUM
+
+En este anexo se incluye la documentación relacionada con la gestión y la planificación del proyecto mediante la metodología ágil Scrum.
+
+Se recogen los sprints planificados, las historias de usuario seleccionadas, las tareas y las reuniones Daily realizadas durante el desarrollo de SalonFlow.
+
+También se incorpora una imagen del **Burndown Chart**, obtenida de Taiga, para mostrar la evolución del trabajo pendiente a lo largo del sprint.
+
+Esta documentación permite consultar la organización del trabajo, el seguimiento de las tareas y la evolución del proyecto.
+
+![Burndown Chart del Sprint 3](./imagenes/burndown-sprint3.png)
+
 # EN EL SEGÓN TRIMESTRE
 # 7. Testing
 - Estratègia de proves (unitàries, integració, E2E)
