@@ -5,6 +5,12 @@ import conexion.ConexionBD;
 import modelo.Cita;
 import modelo.Servicio;
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public class CitaDAO {
 
@@ -206,5 +212,40 @@ public class CitaDAO {
             System.out.println("Error al listar servicios de la cita: " + e.getMessage());
             return null;
         }
+    }
+
+
+    // Comprobar si un peluquero ya tiene una cita a esa hora
+    public boolean existeCita(int idPeluquero, LocalDateTime fechaHora) {
+
+        String sql = "SELECT COUNT(*) FROM cita " +
+                    "WHERE id_peluquero = ? AND fecha_hora = ? " +
+                    "AND estado != 'cancelada'";
+
+        try (Connection con = ConexionBD.conectar()) {
+
+            if (con == null) {
+                return true;
+            }
+
+            try (PreparedStatement ps = con.prepareStatement(sql)) {
+
+                ps.setInt(1, idPeluquero);
+                ps.setTimestamp(2, Timestamp.valueOf(fechaHora));
+
+                try (ResultSet rs = ps.executeQuery()) {
+
+                    if (rs.next()) {
+                        return rs.getInt(1) > 0;
+                    }
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al comprobar disponibilidad: " + e.getMessage());
+            return true;
+        }
+
+        return true;
     }
 }

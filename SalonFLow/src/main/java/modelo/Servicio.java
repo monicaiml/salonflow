@@ -17,6 +17,9 @@ public class Servicio
 
     }
 
+    public Servicio() {
+    
+    }
     
 
     public int getId_servicio() 

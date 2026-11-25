@@ -6,6 +6,7 @@ dao/ServicioDAO.class
 salonflow/backend/Main.class
 controller/ClienteController.class
 dao/ClienteDAO.class
+controller/PeluqueroController.class
 dao/FacturaDAO.class
 modelo/Servicio.class
 modelo/Factura.class

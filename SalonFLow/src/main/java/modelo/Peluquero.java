@@ -14,6 +14,8 @@ public class Peluquero
         this.especialidad = especialidad;
     }
 
+    public Peluquero() {
+    }
 
     public int getId_peluquero() 
     {

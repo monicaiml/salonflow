@@ -20,6 +20,10 @@ public class Factura {
 
     }
 
+    public Factura() {
+        
+    }
+
     
     public int getId_factura() 
     {

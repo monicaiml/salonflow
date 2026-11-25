@@ -1,6 +1,10 @@
 /home/marbonnav/proyecto/SalonFLow/src/main/java/conexion/ConexionBD.java
 /home/marbonnav/proyecto/SalonFLow/src/main/java/conexion/PruebaConexion.java
+/home/marbonnav/proyecto/SalonFLow/src/main/java/controller/CitaController.java
 /home/marbonnav/proyecto/SalonFLow/src/main/java/controller/ClienteController.java
+/home/marbonnav/proyecto/SalonFLow/src/main/java/controller/FacturaController.java
+/home/marbonnav/proyecto/SalonFLow/src/main/java/controller/PeluqueroController.java
+/home/marbonnav/proyecto/SalonFLow/src/main/java/controller/ServicioController.java
 /home/marbonnav/proyecto/SalonFLow/src/main/java/dao/CitaDAO.java
 /home/marbonnav/proyecto/SalonFLow/src/main/java/dao/ClienteDAO.java
 /home/marbonnav/proyecto/SalonFLow/src/main/java/dao/FacturaDAO.java

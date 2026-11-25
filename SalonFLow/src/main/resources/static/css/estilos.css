@@ -254,3 +254,45 @@ body {
 .mensaje-error {
     color: #c0392b;
 }
+
+/* HORARIO DE APERTURA */
+.horario {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #f4f8f5;
+    border: 1px solid #dce9df;
+    border-left: 5px solid #28764f;
+    border-radius: 10px;
+}
+
+.horario h3 {
+    color: #24563e;
+    margin-bottom: 20px;
+}
+
+.horario-detalles {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.horario-detalles div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: white;
+    padding: 18px;
+    border-radius: 8px;
+    min-width: 180px;
+    border: 1px solid #e7eee9;
+}
+
+.horario-detalles span {
+    color: #78867e;
+    font-size: 14px;
+}
+
+.horario-detalles strong {
+    color: #24563e;
+    font-size: 18px;
+}

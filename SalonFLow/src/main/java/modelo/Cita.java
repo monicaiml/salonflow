@@ -22,6 +22,9 @@ public class Cita {
 
     }
 
+    public Cita() {
+    
+    }
     
     public int getId_cita() 
     {
