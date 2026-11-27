@@ -9,6 +9,8 @@ import dao.CitaDAO;
 import modelo.Cita;
 import modelo.Servicio;
 
+import java.time.LocalDateTime;
+
 @RestController
 @RequestMapping("/api/citas")
 public class CitaController {
@@ -98,6 +100,12 @@ public class CitaController {
             cita.getId_peluquero() <= 0 ||
             cita.getEstado() == null ||
             cita.getEstado().trim().isEmpty()) {
+            return -1;
+        }
+
+        //Comprobacion de que la cita sea posterior al momento actual
+        if(!cita.getFecha_hora().isAfter(LocalDateTime.now()))
+        {
             return -1;
         }
 

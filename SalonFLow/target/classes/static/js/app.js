@@ -1082,8 +1082,12 @@ function mostrarFormularioCita(clientes, peluqueros) {
                     })
                     .then(function(idCita) {
 
-                        if (idCita <= 0) {
-                            throw new Error("El peluquero ya tiene una cita reservada a esa hora o los datos no son válidos.");
+                        if (idCita === -1) {
+                            throw new Error("No puedes reservar en una fecha u hora pasada.");                        
+                        }
+                        else if(idCita != -1)
+                        {
+                            throw new Error("El peluquero ya tiene esa hora reservada.");
                         }
 
                         const peticiones = serviciosSeleccionados.map(function(opcion) {
